@@ -17,7 +17,7 @@
     </head>
     <body class="antialiased">
     <div id="app">
-        <example-component></example-component>
+        <main-page></main-page>
     </div>
 
     @vite('resources/js/app.js')
