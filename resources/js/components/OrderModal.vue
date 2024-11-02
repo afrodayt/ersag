@@ -74,6 +74,7 @@ export default {
                 if (product) {
                     product.count += 1;
                     product.selected = true;
+                    this.countSum();
                 }
             }
             this.isVisible = true;
@@ -121,8 +122,32 @@ export default {
             this.countSum();
         },
         submitOrder() {
-            alert('Замовлення підтверджено!');
-            this.closeModal();
+
+            const leadData = {
+                name: this.name,
+                phone: this.phone,
+                address: this.address,
+                products: this.products,
+                summary: this.summary.toString()
+            };
+
+            fetch('/api/leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(leadData),
+            })
+                .then(response => {
+                    if (response.ok) {
+
+                    } else {
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         },
     },
 };
