@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center justify-content-md-start">
-                            <a href="#"
+                            <a href="#catalog"
                                class="main-button text-dark d-flex align-items-center justify-content-center text-decoration-none">
                                 До каталогу товарів
                             </a>
@@ -207,106 +207,62 @@
                     </div>
                 </div>
                 <div class="row align-items-stretch">
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-4" v-for="product in products" :key="product.id">
                         <div class="main-catalog-card">
                             <div>
                                 <div class="text-center">
-                                    <img src="assets/img/img-product-carpet-cleaner.png" alt="carpet-cleaner">
+                                    <img :src="'assets/img/' + product.img" :alt="product.productName">
                                 </div>
                                 <div class="main-catalog-card-title">
-                                    Миючий засіб для килимів, 1000 мл
+                                    {{ product.productName }}, <span v-if="product.id !== 3">{{product.volume}}</span>
+                                </div>
+                                <div v-if="product.id === 1">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад:</span> Концентрат, не містить фосфатів (STTP)
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Спосіб застосування:</span>
+                                        Розведіть 1 кришку засобу на 1 літр води. Нанесіть на пляму, зачекайте кілька хвилин, потім змийте теплою водою та протріть.
+                                    </div>
+                                </div>
+                                <div v-else-if="product.id === 2">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Спосіб застосування:</span>
+                                        Розведіть засіб у співвідношенні 1:5 з водою. Після очищення протріть меблі сухою ганчіркою.
+                                    </div>
+                                </div>
+                                <div v-else-if="product.id === 3">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад набору:</span> Миючий засіб для килимів 1000 мл + Засіб для чищення меблів 500 мл
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Переваги:</span>
+                                        Економія, комплексне рішення для догляду за домом.
+                                    </div>
                                 </div>
 
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад:</span> Концентрат, не містить фосфатів (STTP)
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Спосіб застосування:</span>
-                                    Розведіть 1 кришку засобу на 1 літр води. Нанесіть на пляму, зачекайте кілька хвилин, потім змийте теплою водою та протріть.
-                                </div>
                                 <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 1000 мл
+                                    <span class="fw-600">Обсяг:</span> {{product.volume}}
                                 </div>
                             </div>
 
                             <div>
-                                <div class="main-catalog-card-price">
-                                    300 грн
-                                </div>
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для килимів
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="main-catalog-card">
-                            <div>
-                                <div class="text-center">
-                                    <img src="assets/img/img-product-furniture-cleaner.png" alt="furniture-cleaner">
-                                </div>
-                                <div class="main-catalog-card-title">
-                                    Засіб для чищення меблів, 500 мл
-                                </div>
-
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP)
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Спосіб застосування:</span>
-                                    Розведіть засіб у співвідношенні 1:5 з водою. Після очищення протріть меблі сухою ганчіркою.
-                                </div>
-                                <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 500 мл
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="main-catalog-card-price">
-                                    250 грн
-                                </div>
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для меблів
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="main-catalog-card position-relative">
-                            <div class="main-catalog-card-discount position-absolute end-0 top-0">Разом дешевше!</div>
-                            <div>
-                                <div class="text-center">
-                                    <img src="assets/img/img-product-set.png" alt="product-set">
-                                </div>
-                                <div class="main-catalog-card-title">
-                                    Набір для очищення меблів та килимів
-                                </div>
-
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад набору:</span> Миючий засіб для килимів 1000 мл + Засіб для чищення меблів 500 мл
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Переваги:</span>
-                                    Економія, комплексне рішення для догляду за домом.
-                                </div>
-                                <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 1000 мл та 500 мл
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center" v-if="product.discountPrice">
                                     <div class="main-catalog-card-price">
-                                        500 грн
+                                        {{product.discountPrice}} грн
                                     </div>
                                     <div class="main-catalog-card-price-old">
-                                        550 грн
+                                        {{product.price}} грн
                                     </div>
                                 </div>
-
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для килимів
+                                <div class="main-catalog-card-price" v-else>
+                                    {{product.price}} грн
+                                </div>
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)">
+                                    Замовити
                                 </button>
                             </div>
                         </div>
@@ -326,51 +282,50 @@
                     </div>
                     <img src="assets/img/img-product.png" alt="product" class="main-products-img adaptive-img">
                 </div>
-
             </section>
         </div>
-            <section class="main-manufacturer mb-200" id="manufacturer">
-                <div class="container d-flex align-items-center flex-column">
-                    <div class="main-title">Виробник, якому можна довіряти</div>
-                    <div class="main-manufacturer-description text-center">
-                        Наші засоби для очищення меблів та килимів виробляються відомою турецькою компанією,
-                        що спеціалізується на створенні екологічно чистих та безпечних продуктів. Багаторічний досвід у розробці миючих засобів гарантує
-                        високу якість та ефективність кожного продукту
+        <section class="main-manufacturer mb-200" id="manufacturer">
+            <div class="container d-flex align-items-center flex-column">
+                <div class="main-title">Виробник, якому можна довіряти</div>
+                <div class="main-manufacturer-description text-center">
+                    Наші засоби для очищення меблів та килимів виробляються відомою турецькою компанією,
+                    що спеціалізується на створенні екологічно чистих та безпечних продуктів. Багаторічний досвід у розробці миючих засобів гарантує
+                    високу якість та ефективність кожного продукту
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/seedling.png" alt="seedling">Екологічно чисте виробництво</div>
+                        <div>
+                            Виробничі процеси компанії відповідають міжнародним стандартам екологічної безпеки, забезпечуючи мінімальний вплив
+                            на довкілля. Уся продукція проходить суворі перевірки, щоб гарантувати її безпеку для вашого дому.
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-5 main-manufacturer-card">
-                            <div class="main-manufacturer-card-title"><img src="assets/img/seedling.png" alt="seedling">Екологічно чисте виробництво</div>
-                            <div>
-                                Виробничі процеси компанії відповідають міжнародним стандартам екологічної безпеки, забезпечуючи мінімальний вплив
-                                на довкілля. Уся продукція проходить суворі перевірки, щоб гарантувати її безпеку для вашого дому.
-                            </div>
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/direct-hit.png" alt="seedling">Якість та інновації</div>
+                        <div>
+                            Виробник постійно вдосконалює свої продукти, використовуючи інноваційні технології очищення.
+                            Це дозволяє досягати найкращих результатів у догляді за меблями та килимами, не завдаючи шкоди матеріалам та довкіллю.
                         </div>
-                        <div class="col-0 col-lg-2"></div>
-                        <div class="col-12 col-lg-5 main-manufacturer-card">
-                            <div class="main-manufacturer-card-title"><img src="assets/img/direct-hit.png" alt="seedling">Якість та інновації</div>
-                            <div>
-                                Виробник постійно вдосконалює свої продукти, використовуючи інноваційні технології очищення.
-                                Це дозволяє досягати найкращих результатів у догляді за меблями та килимами, не завдаючи шкоди матеріалам та довкіллю.
-                            </div>
+                    </div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/flag-turkey.png" alt="seedling">Вироблено в Туреччині</div>
+                        <div>
+                            Всі засоби виробляються в Туреччині з дотриманням високих європейських стандартів якості.
+                            Турецькі виробники відомі своїм відповідальним підходом до екології та якості продукції
                         </div>
-                        <div class="col-12 col-lg-5 main-manufacturer-card">
-                            <div class="main-manufacturer-card-title"><img src="assets/img/flag-turkey.png" alt="seedling">Вироблено в Туреччині</div>
-                            <div>
-                                Всі засоби виробляються в Туреччині з дотриманням високих європейських стандартів якості.
-                                Турецькі виробники відомі своїм відповідальним підходом до екології та якості продукції
-                            </div>
-                        </div>
-                        <div class="col-0 col-lg-2"></div>
-                        <div class="col-12 col-lg-5 main-manufacturer-card">
-                            <div class="main-manufacturer-card-title"><img src="assets/img/flag-european-union.png" alt="seedling">Міжнародні стандарти</div>
-                            <div>
-                                Продукція сертифікована згідно з міжнародними стандартами, що підтверджує її безпечність і ефективність.
-                                Наші засоби не містять фосфатів (STTP) і є абсолютно безпечними для використання в будинку з дітьми і домашніми тваринами
-                            </div>
+                    </div>
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/flag-european-union.png" alt="seedling">Міжнародні стандарти</div>
+                        <div>
+                            Продукція сертифікована згідно з міжнародними стандартами, що підтверджує її безпечність і ефективність.
+                            Наші засоби не містять фосфатів (STTP) і є абсолютно безпечними для використання в будинку з дітьми і домашніми тваринами
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
         <div class="container">
             <section class="main-feedback d-flex align-items-center flex-column mb-200" id="feedback">
                 <div class="main-title">Відгуки</div>
@@ -398,20 +353,34 @@
                     Замовте зараз та отримайте <span class="text-blue fw-bold">знижку 10%</span>
                     на перше замовлення! Безпечне та ефективне очищення вашого дому без зайвих зусиль
                 </div>
-                <button class="main-button">Замовити зі знижкою</button>
+                <button class="main-button" @click="openOrderModal">Замовити зі знижкою</button>
             </section>
         </div>
+        <OrderModal ref="productModal"/>
     </main>
 </template>
 
 <script>
+
+import OrderModal from "@/components/OrderModal.vue";
+import {products} from "@/products.js";
+
 export default {
     name: 'MainPage',
+    components: {
+        OrderModal
+    },
     data() {
         return {
-            showCover: false
+            showCover: false,
+            products: products,
         }
-    }
+    },
+    methods: {
+        openOrderModal(id = null) {
+            this.$refs.productModal.openModal(id);
+        },
+    },
 };
 </script>
 

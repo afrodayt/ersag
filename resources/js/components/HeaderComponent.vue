@@ -10,7 +10,7 @@
                 <a href="#manufacturer" class="header-link">Виробник</a>
                 <a href="#feedback" class="header-link">Відгуки</a>
 
-                <button class="header-btn">Замовити</button>
+                <button class="header-btn" data-bs-toggle="modal" data-bs-target="#orderModal">Замовити</button>
             </div>
         </div>
 
