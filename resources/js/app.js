@@ -9,11 +9,13 @@ Vue.config.devtools = false;
 
 import MainPage from '@/pages/MainPage.vue';
 import HeaderComponent from "@/components/HeaderComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 new Vue({
     el: '#app',
     components: {
         MainPage,
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     },
 });

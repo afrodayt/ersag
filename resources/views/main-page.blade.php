@@ -16,6 +16,7 @@
     <div id="app">
         <header-component></header-component>
         <main-page></main-page>
+        <footer-component></footer-component>
     </div>
 
     @vite('resources/js/app.js')
