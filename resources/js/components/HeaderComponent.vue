@@ -1,12 +1,19 @@
 <template>
     <header class="header">
-        <img src="assets/img/logo-ersag.svg" alt="logo">
-        <a href="#" class="header-text">Про продукт</a>
-        <a href="#" class="header-text">Наші переваги</a>
-        <a href="#" class="header-text">Каталог товару</a>
-        <a href="#" class="header-text">Виробник</a>
-        <a href="#" class="header-text">Відгуки</a>
-        <button class="header-order">Замовити</button>
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between gap-3">
+                <img class="header-logo" src="assets/img/logo-ersag.svg" alt="logo">
+
+                <a href="#" class="header-link">Про продукт</a>
+                <a href="#" class="header-link">Наші переваги</a>
+                <a href="#" class="header-link">Каталог товару</a>
+                <a href="#" class="header-link">Виробник</a>
+                <a href="#" class="header-link">Відгуки</a>
+
+                <button class="header-btn">Замовити</button>
+            </div>
+        </div>
+
     </header>
 
 </template>
@@ -19,32 +26,50 @@ export default {
 
 <style scoped lang="less">
     .header {
-        padding: 25px;
-        font-family: 'Open Sans', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 25px 0;
         font-size: 16px;
         font-weight: 600;
 
-        img {
-            margin-right: 62px;
+        @media (max-width: 991px) {
+            padding: 22px 0;
+
+            &-logo {
+                height: 40px;
+                object-fit: contain;
+            }
         }
 
-        &-text {
-            margin-right: 47px;
+        &-link {
             color: rgb(0, 0, 0);
             text-decoration: none;
+
+            @media (max-width: 991px) {
+                display: none;
+            }
         }
 
-        &-order {
+        &-btn {
             border: 2px solid rgb(255, 217, 0);
             border-radius: 80px;
             width: 180px;
             height: 40px;
-        }
-        &-order:hover {
-            background: rgb(255, 217, 0);
+            background: white;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19.2px;
+            letter-spacing: 0.005em;
+
+            &:hover {
+                background: rgb(255, 217, 0);
+            }
+
+            @media (max-width: 991px) {
+                height: 35px;
+                width: 120px;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 18px;
+            }
         }
     }
 </style>

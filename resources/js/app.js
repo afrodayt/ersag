@@ -2,6 +2,7 @@ import './bootstrap';
 import Vue from 'vue/dist/vue.common.dev.js';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../less/app.less';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

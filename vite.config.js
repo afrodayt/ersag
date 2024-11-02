@@ -6,7 +6,10 @@ import path from "path";
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/less/app.less', 'resources/js/app.js'],
+            input: {
+                main: 'resources/js/app.js',
+                styles: 'resources/less/app.less',
+            },
             refresh: true,
         }),
         vue(),
