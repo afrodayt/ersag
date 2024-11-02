@@ -4,44 +4,47 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <div class="align-items-end d-flex w-100">
+                            <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
+                        </div>
                         <h5 class="modal-title" id="exampleModalLabel">Ваше замовлення</h5>
-                        <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form @submit.prevent="submitOrder">
-                            <div class="mb-4">
-                                <label for="name-input">Ім'я</label>
-                                <input type="text" placeholder="Ірина" v-model="name" required>
+                            <div class="modal-input">
+                                <label for="name-input" class="modal-input-name">Ім'я</label>
+                                <input type="text" placeholder="Ірина" v-model="name" class="modal-input-string" required>
                             </div>
-                            <div class="mb-4">
-                                <label for="phone-input">Телефон</label>
-                                <input type="tel" v-model="phone" placeholder="+38 050 021 36 21" required>
+                            <div class="modal-input">
+                                <label for="phone-input" class="modal-input-name">Телефон</label>
+                                <input type="tel" v-model="phone" placeholder="+38 050 021 36 21" class="modal-input-string" required>
                             </div>
-                            <div class="mb-5">
-                                <label for="address-input">Адреса доставки</label>
-                                <input type="text" v-model="address" placeholder="місто Київ, відділення нової пошти 52" required>
+                            <div class="modal-input">
+                                <label for="address-input" class="modal-input-name">Адреса доставки</label>
+                                <input type="text" v-model="address" placeholder="місто Київ, відділення нової пошти 52" class="modal-input-string mb-50" required>
                             </div>
-                            <div class="modal-form-title mb-4">Вибір продукту</div>
-                            <div class="d-flex flex-column gap-4">
-                                <div class="d-flex align-items-center justify-content-between" v-for="product in products" :key="'order-modal-product-' + product.id">
-                                    <div>
-                                        <input :id="'product-checkbox' + product.id" type="checkbox" v-model="product.selected" @change="updateProductSelection(product)">
-                                        <label :for="'product-checkbox' + product.id">{{ product.productName }}</label>
+                            <div class="modal-form-title">Вибір продукту</div>
+                            <div class="d-flex flex-column gap-4 mb-50">
+                                <div class="d-flex" v-for="product in products" :key="'order-modal-product-' + product.id">
+                                    <div class="d-flex align-items-center">
+                                        <input :id="'product-checkbox' + product.id" type="checkbox" v-model="product.selected" @change="updateProductSelection(product)" class="modal-form-checkbox">
+                                        <label :for="'product-checkbox' + product.id" class="modal-form-label"></label>
+                                        <div class="modal-form-text">{{ product.productName }}</div>
                                     </div>
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div>Кількість</div>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <button @click.prevent="minus(product.id)" :disabled="!product.selected || product.count <= 0">-</button>
-                                            <input type="number" v-model="product.count" :disabled="!product.selected" min="0">
-                                            <button @click.prevent="plus(product.id)" :disabled="!product.selected">+</button>
+                                    <div class="d-flex align-items-center modal-form-calculate">
+                                        <div class="modal-form-calculate-text">Кількість</div>
+                                        <div class="d-flex align-items-center">
+                                            <button class="modal-form-calculate-button" @click.prevent="minus(product.id)" :disabled="!product.selected || product.count <= 0">-</button>
+                                            <input type="number" readonly v-model="product.count" :disabled="!product.selected" min="0" class="modal-form-calculate-input">
+                                            <button class="modal-form-calculate-button" @click.prevent="plus(product.id)" :disabled="!product.selected">+</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="info">🚚 Оформіть замовлення до кінця дня і отримайте безкоштовну доставку!</div>
-                            <div>Сума до сплати: {{ summary }} грн</div>
-                            <button type="submit" class="btn btn-primary">Підтвердити замовлення</button>
+                            <div class="modal-info mb-50">🚚 Оформіть замовлення до кінця дня і отримайте безкоштовну доставку!</div>
+                            <div class="modal-summary mb-50">Сума до сплати: {{ summary }} <span class="modal-summary-small">грн</span></div>
+                            <button type="submit" class="modal-btn">Оформити замовлення</button>
                         </form>
                     </div>
                 </div>
@@ -122,7 +125,6 @@ export default {
             this.countSum();
         },
         submitOrder() {
-
             const leadData = {
                 name: this.name,
                 phone: this.phone,
@@ -140,20 +142,24 @@ export default {
             })
                 .then(response => {
                     if (response.ok) {
-
+                        window.location.href = '/thank-you';
                     } else {
-
+                        console.error('Ошибка при отправке данных:', response.statusText);
                     }
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    console.error('Ошибка:', error);
                 });
-        },
+        }
     },
 };
 </script>
 
 <style scoped lang="less">
+.mb-50 {
+    margin-bottom: 50px !important;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -161,5 +167,154 @@ export default {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+}
+.modal {
+    &-content {
+        padding: 25px 40px 55px 40px;
+        border-radius: 20px;
+        border: unset;
+        width: unset;
+    }
+
+    &-header {
+        border: unset;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    &-title {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 125%;
+        margin-bottom: 50px;
+    }
+
+    &-body {
+        padding: 0;
+    }
+
+    &-input {
+        display: flex;
+        flex-direction: column;
+
+        &-name {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 22px;
+            margin-bottom: 10px;
+        }
+
+        &-string {
+            border: 1px solid rgb(194, 194, 194);;
+            border-radius: 10px;
+            background: rgb(255, 255, 255);
+            padding: 14px;
+            margin-bottom: 25px;
+            width: 500px;
+        }
+    }
+    &-form {
+        &-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        &-checkbox {
+            display: none;
+            &:checked + .modal-form-label {
+                background: rgb(55, 146, 219);
+                border-color: rgb(55, 146, 219);
+            }
+            &:checked + .modal-form-label::after {
+                content: '';
+                position: absolute;
+                top: 4px;
+                left: 8px;
+                width: 6px;
+                height: 12px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+
+        }
+        &-label {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgb(194, 194, 194);;
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            margin-right: 12px;
+        }
+        &-text {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 22px;
+            margin-right: 72px;
+            width: 180px;
+        }
+        &-calculate {
+            &-input {
+                width: 46px;
+                height: 34px;
+                border: 1px solid rgb(185, 185, 185);
+                border-radius: 5px;
+            }
+            &-text {
+                font-size: 17px;
+                font-weight: 400;
+                line-height: 22px;
+                margin-right: 22px;
+            }
+            &-button {
+                border: unset;
+                background: unset;
+                font-size: 35px;
+                font-weight: 400;
+                color: rgb(55, 146, 219);
+                padding: 0;
+                margin-right: 14px;
+
+                &:disabled {
+                    color: rgb(185, 185, 185);
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                    margin-left: 14px;
+                }
+            }
+        }
+    }
+    &-info {
+        border-radius: 15px;
+        padding: 20px;
+        background: rgb(213, 236, 255);
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+    }
+    &-summary {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 35px;
+
+        &-small {
+            font-size: 20px;
+            line-height: 27px;
+        }
+    }
+    &-btn {
+        border-radius: 80px;
+        background: rgb(255, 217, 0);
+        border: none;
+        padding: 18px 146px;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 120%;
+    }
 }
 </style>
