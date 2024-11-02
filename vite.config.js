@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue2';
 import path from "path";
 
 export default defineConfig({
+    base: '/ersag/',
     plugins: [
         laravel({
             input: {
@@ -20,6 +21,9 @@ export default defineConfig({
             'assets': path.resolve(__dirname, 'public/assets'),
             'img': path.resolve(__dirname, 'public/assets/img'),
         },
+    },
+    build: {
+        outDir: 'dist',
     },
 });
 
