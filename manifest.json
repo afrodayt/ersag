@@ -1,27 +1,11 @@
 {
-  "public/assets/img/bg-advantages.png": {
-    "file": "assets/bg-advantages-DF0qfddi.png",
-    "src": "public/assets/img/bg-advantages.png"
+  "public/assets/img/bg-advantages.svg": {
+    "file": "assets/bg-advantages-DhwhkqUe.svg",
+    "src": "public/assets/img/bg-advantages.svg"
   },
   "public/assets/img/bubble.png": {
-    "file": "assets/bubble-CXNrayPb.png",
+    "file": "assets/bubble-al4ZV5IG.png",
     "src": "public/assets/img/bubble.png"
-  },
-  "public/assets/img/bubble2_1.png": {
-    "file": "assets/bubble2_1-Z9a71H1G.png",
-    "src": "public/assets/img/bubble2_1.png"
-  },
-  "public/assets/img/bubble2_2.png": {
-    "file": "assets/bubble2_2-MuunHsdY.png",
-    "src": "public/assets/img/bubble2_2.png"
-  },
-  "public/assets/img/bubble3_1.png": {
-    "file": "assets/bubble3_1-B1yN6k09.png",
-    "src": "public/assets/img/bubble3_1.png"
-  },
-  "public/assets/img/bubble4_1.png": {
-    "file": "assets/bubble4_1-DGGIpJqL.png",
-    "src": "public/assets/img/bubble4_1.png"
   },
   "public/assets/img/concentrated-product.png": {
     "file": "assets/concentrated-product-CvtjJEyi.png",
@@ -47,29 +31,13 @@
     "file": "assets/img-ekologichno-Di1RgQtl.png",
     "src": "public/assets/img/img-ekologichno.png"
   },
-  "public/assets/img/img-housewife-mobile.png": {
-    "file": "assets/img-housewife-mobile-D9PK6yaS.png",
-    "src": "public/assets/img/img-housewife-mobile.png"
-  },
   "public/assets/img/img-housewife.png": {
-    "file": "assets/img-housewife-kmGvGm4E.png",
+    "file": "assets/img-housewife-C55Zwjp2.png",
     "src": "public/assets/img/img-housewife.png"
   },
-  "public/assets/img/img-problem-contamination-of-furniture.png": {
-    "file": "assets/img-problem-contamination-of-furniture-BGhn-T9h.png",
-    "src": "public/assets/img/img-problem-contamination-of-furniture.png"
-  },
-  "public/assets/img/img-product-carpet-cleaner.png": {
-    "file": "assets/img-product-carpet-cleaner-B9LA_GCk.png",
-    "src": "public/assets/img/img-product-carpet-cleaner.png"
-  },
-  "public/assets/img/img-product-furniture-cleaner.png": {
-    "file": "assets/img-product-furniture-cleaner-Bz096hfW.png",
-    "src": "public/assets/img/img-product-furniture-cleaner.png"
-  },
-  "public/assets/img/img-product-set.png": {
-    "file": "assets/img-product-set-CJCvfsHJ.png",
-    "src": "public/assets/img/img-product-set.png"
+  "public/assets/img/img-problem-contamination-of-furniture.jpeg": {
+    "file": "assets/img-problem-contamination-of-furniture-BdCeufwt.jpeg",
+    "src": "public/assets/img/img-problem-contamination-of-furniture.jpeg"
   },
   "public/assets/img/img-safety-for-family.png": {
     "file": "assets/img-safety-for-family-DYrbq6Bz.png",
@@ -95,10 +63,6 @@
     "file": "assets/logo-ersag-CfEgJtPG.svg",
     "src": "public/assets/img/logo-ersag.svg"
   },
-  "public/assets/img/main-banner-mobile.png": {
-    "file": "assets/main-banner-mobile-C3woDYPP.png",
-    "src": "public/assets/img/main-banner-mobile.png"
-  },
   "public/assets/img/main-banner.png": {
     "file": "assets/main-banner-Cv_blg6a.png",
     "src": "public/assets/img/main-banner.png"
@@ -108,45 +72,36 @@
     "src": "public/assets/img/manufacturer-turkiye.png"
   },
   "resources/js/app.js": {
-    "file": "assets/main-cJn3FOXw.js",
-    "name": "main",
+    "file": "assets/app-BsTG9KBD.js",
+    "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/main-ChY1NLBy.css"
+      "assets/app--oLF3xTn.css"
     ],
     "assets": [
       "assets/img-carpet-ZSs2uMBm.png",
       "assets/img-sofa-BjVFUYDa.png",
-      "assets/img-problem-contamination-of-furniture-BGhn-T9h.png",
+      "assets/img-problem-contamination-of-furniture-BdCeufwt.jpeg",
       "assets/furniture-DgXdvmdO.png",
       "assets/concentrated-product-CvtjJEyi.png",
       "assets/manufacturer-turkiye-BOS2wQ2x.png",
       "assets/img-safety-for-family-DYrbq6Bz.png",
       "assets/leaf1-DFkItnf5.png",
-      "assets/bubble-CXNrayPb.png",
+      "assets/bubble-al4ZV5IG.png",
       "assets/img-easy-to-use-BzLayJbQ.png",
-      "assets/bubble2_1-Z9a71H1G.png",
-      "assets/bubble2_2-MuunHsdY.png",
-      "assets/img-housewife-kmGvGm4E.png",
-      "assets/img-housewife-mobile-D9PK6yaS.png",
+      "assets/img-housewife-C55Zwjp2.png",
       "assets/img-economical-BhZrSuS3.png",
       "assets/leaf2-DJbicpLS.png",
       "assets/leaf3-BpzXaHe0.png",
-      "assets/bubble3_1-B1yN6k09.png",
       "assets/img-ekologichno-Di1RgQtl.png",
-      "assets/bubble4_1-DGGIpJqL.png",
-      "assets/img-product-carpet-cleaner-B9LA_GCk.png",
-      "assets/img-product-furniture-cleaner-Bz096hfW.png",
-      "assets/img-product-set-CJCvfsHJ.png",
       "assets/logo-ersag-CfEgJtPG.svg",
       "assets/main-banner-Cv_blg6a.png",
-      "assets/main-banner-mobile-C3woDYPP.png",
-      "assets/bg-advantages-DF0qfddi.png"
+      "assets/bg-advantages-DhwhkqUe.svg"
     ]
   },
   "resources/less/app.less": {
-    "file": "assets/styles-QWa2a1II.css",
+    "file": "assets/app-tK7EUtyc.css",
     "src": "resources/less/app.less",
     "isEntry": true
   }
