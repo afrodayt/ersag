@@ -10,6 +10,7 @@ export default defineConfig({
     },
     build: {
         manifest: true, // Убедитесь, что манифест включен, если он нужен вашему серверу для правильной маршрутизации
+        outDir: 'public/build', // Путь к выходной директории
     },
     plugins: [
         laravel({
