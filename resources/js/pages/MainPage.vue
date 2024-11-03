@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center justify-content-md-start">
-                            <a href="#"
+                            <a href="#catalog"
                                class="main-button text-dark d-flex align-items-center justify-content-center text-decoration-none">
                                 До каталогу товарів
                             </a>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="container">
-            <section class="mb-200 text-center text-lg-start">
+            <section class="mb-200 text-center text-lg-start" id="about">
                 <div class="row flex-column-reverse flex-lg-row align-items-center">
                     <div class="col-12 col-lg-6">
                         <img class="adaptive-img" src="assets/img/img-problem-contamination-of-furniture.png" alt="problems">
@@ -139,7 +139,7 @@
                 </div>
             </section>
         </div>
-        <section class="mb-200 main-advantages">
+        <section class="mb-200 main-advantages" id="advantages">
             <div class="container">
                 <div class="main-title text-center">
                     Переваги
@@ -198,7 +198,7 @@
             </div>
         </section>
         <div class="container">
-            <section class="main-catalog mb-200">
+            <section class="main-catalog mb-200" id="catalog">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-9">
                         <div class="main-title text-center">
@@ -207,125 +207,180 @@
                     </div>
                 </div>
                 <div class="row align-items-stretch">
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-4" v-for="product in products" :key="product.id">
                         <div class="main-catalog-card">
                             <div>
                                 <div class="text-center">
-                                    <img src="assets/img/img-product-carpet-cleaner.png" alt="carpet-cleaner">
+                                    <img :src="'assets/img/' + product.img" :alt="product.productName">
                                 </div>
                                 <div class="main-catalog-card-title">
-                                    Миючий засіб для килимів, 1000 мл
+                                    {{ product.productName }}, <span v-if="product.id !== 3">{{product.volume}}</span>
+                                </div>
+                                <div v-if="product.id === 1">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад:</span> Концентрат, не містить фосфатів (STTP)
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Спосіб застосування:</span>
+                                        Розведіть 1 кришку засобу на 1 літр води. Нанесіть на пляму, зачекайте кілька хвилин, потім змийте теплою водою та протріть.
+                                    </div>
+                                </div>
+                                <div v-else-if="product.id === 2">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Спосіб застосування:</span>
+                                        Розведіть засіб у співвідношенні 1:5 з водою. Після очищення протріть меблі сухою ганчіркою.
+                                    </div>
+                                </div>
+                                <div v-else-if="product.id === 3">
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Склад набору:</span> Миючий засіб для килимів 1000 мл + Засіб для чищення меблів 500 мл
+                                    </div>
+                                    <div class="main-catalog-card-description mb-2">
+                                        <span class="fw-600">Переваги:</span>
+                                        Економія, комплексне рішення для догляду за домом.
+                                    </div>
                                 </div>
 
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад:</span> Концентрат, не містить фосфатів (STTP)
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Спосіб застосування:</span>
-                                    Розведіть 1 кришку засобу на 1 літр води. Нанесіть на пляму, зачекайте кілька хвилин, потім змийте теплою водою та протріть.
-                                </div>
                                 <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 1000 мл
+                                    <span class="fw-600">Обсяг:</span> {{product.volume}}
                                 </div>
                             </div>
 
                             <div>
-                                <div class="main-catalog-card-price">
-                                    300 грн
-                                </div>
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для килимів
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="main-catalog-card">
-                            <div>
-                                <div class="text-center">
-                                    <img src="assets/img/img-product-furniture-cleaner.png" alt="furniture-cleaner">
-                                </div>
-                                <div class="main-catalog-card-title">
-                                    Засіб для чищення меблів, 500 мл
-                                </div>
-
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP)
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Спосіб застосування:</span>
-                                    Розведіть засіб у співвідношенні 1:5 з водою. Після очищення протріть меблі сухою ганчіркою.
-                                </div>
-                                <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 500 мл
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="main-catalog-card-price">
-                                    250 грн
-                                </div>
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для меблів
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="main-catalog-card position-relative">
-                            <div class="main-catalog-card-discount position-absolute end-0 top-0">Разом дешевше!</div>
-                            <div>
-                                <div class="text-center">
-                                    <img src="assets/img/img-product-set.png" alt="product-set">
-                                </div>
-                                <div class="main-catalog-card-title">
-                                    Набір для очищення меблів та килимів
-                                </div>
-
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Склад набору:</span> Миючий засіб для килимів 1000 мл + Засіб для чищення меблів 500 мл
-                                </div>
-                                <div class="main-catalog-card-description mb-2">
-                                    <span class="fw-600">Переваги:</span>
-                                    Економія, комплексне рішення для догляду за домом.
-                                </div>
-                                <div class="main-catalog-card-description">
-                                    <span class="fw-600">Обсяг:</span> 1000 мл та 500 мл
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center" v-if="product.discountPrice">
                                     <div class="main-catalog-card-price">
-                                        500 грн
+                                        {{product.discountPrice}} грн
                                     </div>
                                     <div class="main-catalog-card-price-old">
-                                        550 грн
+                                        {{product.price}} грн
                                     </div>
                                 </div>
-
-                                <button class="main-catalog-card-btn">
-                                    Замовити засіб для килимів
+                                <div class="main-catalog-card-price" v-else>
+                                    {{product.price}} грн
+                                </div>
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)">
+                                    Замовити
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+            <section class="main-products mb-200">
+                <div class="main-products-background">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 main-products-container">
+                            <div class="main-products-container-text">
+                                Замовляючи наші засоби разом, ви отримуєте комплексне рішення для догляду за вашим домом та <span class="fw-bold">економите 50 грн!</span> Безпечний
+                                догляд для килимів і меблів в одному наборі.
+                            </div>
+                        </div>
 
+                    </div>
+                    <img src="assets/img/img-product.png" alt="product" class="main-products-img adaptive-img">
+                </div>
             </section>
         </div>
+        <section class="main-manufacturer mb-200" id="manufacturer">
+            <div class="container d-flex align-items-center flex-column">
+                <div class="main-title">Виробник, якому можна довіряти</div>
+                <div class="main-manufacturer-description text-center">
+                    Наші засоби для очищення меблів та килимів виробляються відомою турецькою компанією,
+                    що спеціалізується на створенні екологічно чистих та безпечних продуктів. Багаторічний досвід у розробці миючих засобів гарантує
+                    високу якість та ефективність кожного продукту
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/seedling.png" alt="seedling">Екологічно чисте виробництво</div>
+                        <div>
+                            Виробничі процеси компанії відповідають міжнародним стандартам екологічної безпеки, забезпечуючи мінімальний вплив
+                            на довкілля. Уся продукція проходить суворі перевірки, щоб гарантувати її безпеку для вашого дому.
+                        </div>
+                    </div>
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/direct-hit.png" alt="seedling">Якість та інновації</div>
+                        <div>
+                            Виробник постійно вдосконалює свої продукти, використовуючи інноваційні технології очищення.
+                            Це дозволяє досягати найкращих результатів у догляді за меблями та килимами, не завдаючи шкоди матеріалам та довкіллю.
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/flag-turkey.png" alt="seedling">Вироблено в Туреччині</div>
+                        <div>
+                            Всі засоби виробляються в Туреччині з дотриманням високих європейських стандартів якості.
+                            Турецькі виробники відомі своїм відповідальним підходом до екології та якості продукції
+                        </div>
+                    </div>
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-12 col-lg-5 main-manufacturer-card">
+                        <div class="main-manufacturer-card-title"><img src="assets/img/flag-european-union.png" alt="seedling">Міжнародні стандарти</div>
+                        <div>
+                            Продукція сертифікована згідно з міжнародними стандартами, що підтверджує її безпечність і ефективність.
+                            Наші засоби не містять фосфатів (STTP) і є абсолютно безпечними для використання в будинку з дітьми і домашніми тваринами
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <section class="main-feedback d-flex align-items-center flex-column mb-200" id="feedback">
+                <div class="main-title">Відгуки</div>
+                <div class="row d-flex justify-content-center">
+                    <div class="main-feedback-card col-11 col-lg-6">
+                        <img src="assets/img/photo-reviews-1.png" alt="avatar" class="main-feedback-card-img">
+                        <div class="main-feedback-card-title">Оксана, Київ.</div>
+                        <div class="text-center">
+                            Ми завжди використовуємо цей засіб для очищення наших меблів і килимів, і результат просто вражає! Безпечний для наших дітей і не
+                            залишає слідів. Дуже економний — одного флакона вистачає надовго
+                        </div>
+                    </div>
+                    <div class="main-feedback-card me-0 col-11 col-lg-6">
+                        <img src="assets/img/photo-reviews-2.png" alt="avatar" class="main-feedback-card-img">
+                        <div class="main-feedback-card-title">Ірина, Львів.</div>
+                        <div class="text-center">
+                            У нас вдома є два домашніх улюбленця, і знайти безпечний засіб для очищення килимів було дуже складно.
+                            Цей продукт став справжнім порятунком! Видаляє плями та запахи, і ми не переживаємо за здоров'я наших тварин.
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-order mb-200 d-flex align-items-center flex-column">
+                <div class="main-order-text text-center">
+                    Замовте зараз та отримайте <span class="text-blue fw-bold">знижку 10%</span>
+                    на перше замовлення! Безпечне та ефективне очищення вашого дому без зайвих зусиль
+                </div>
+                <button class="main-button" @click="openOrderModal">Замовити зі знижкою</button>
+            </section>
+        </div>
+        <OrderModal ref="productModal"/>
     </main>
 </template>
 
 <script>
+
+import OrderModal from "@/components/OrderModal.vue";
+import {products} from "@/products.js";
+
 export default {
     name: 'MainPage',
+    components: {
+        OrderModal
+    },
     data() {
         return {
-            showCover: false
+            showCover: false,
+            products: products,
         }
-    }
+    },
+    methods: {
+        openOrderModal(id = null) {
+            this.$refs.productModal.openModal(id);
+        },
+    },
 };
 </script>
 
@@ -379,6 +434,7 @@ export default {
         width: 300px;
         height: 60px;
         transition: .3s all ease;
+        border: none;
 
         &:hover {
             background: rgb(255, 230, 90);
@@ -521,6 +577,11 @@ export default {
         &-housewife {
             z-index: 2;
             margin: 64px 0 43px 68px;
+
+            @media (min-width: 991px) and (max-width: 1199px) {
+                opacity: 0;
+                visibility: hidden;
+            }
 
             @media (max-width: 991px) {
                 margin: 25px 0 80px;
@@ -771,6 +832,191 @@ export default {
                 &:hover {
                     background: #FFE65A;
                 }
+            }
+        }
+    }
+    &-products {
+        &-background {
+            position: relative;
+
+            @media(max-width: 991px) {
+                background: url("assets/img/background-benefit-forest-mobile.jpeg") center no-repeat;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url("assets/img/background-benefit-forest.jpeg") center bottom no-repeat;
+                background-size: cover;
+                border-radius: 15px;
+                z-index: -1;
+
+                @media (max-width: 991px) {
+                    display: none;
+                }
+            }
+
+            .main-products-img {
+                position: absolute;
+                bottom: 0;
+                right: 30px;
+                width: 490px;
+                height: 287px;
+
+                @media (max-width: 991px) {
+                    position: relative;
+                    bottom: unset;
+                    right: unset;
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        &-container {
+            display: flex;
+            align-items: end;
+
+            @media(max-width: 991px) {
+                align-items: center;
+                max-width: 290px;
+            }
+
+            &-text {
+                padding: 47px 0 47px 50px;
+                color: rgb(255, 255, 255);
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 135%;
+                @media(max-width: 991px) {
+                    padding: 50px 0 0 0;
+                    max-width: 260px;
+                    font-size: 22px;
+                    font-weight: 400;
+                    line-height: 130%;
+                    text-align: center;
+                    margin-bottom: 45px;
+                }
+            }
+        }
+    }
+
+    &-manufacturer {
+        background-image: url("assets/img/bg-manufacturer.png");
+
+        .main-title {
+            margin-bottom: 24px;
+            max-width: 845px;
+            text-align: center;
+        }
+
+        &-description {
+            max-width: 765px;
+            margin-bottom: 50px;
+
+            @media(max-width: 991px) {
+                margin-bottom: 35px;
+            }
+        }
+
+        &-card {
+            margin-bottom: 50px;
+            text-align: center;
+
+            @media(max-width: 991px) {
+                margin-bottom: 30px;
+            }
+
+            &-title {
+                font-size: 22px;
+                font-weight: 600;
+                line-height: 140%;
+                margin-bottom: 10px;
+
+                @media(max-width: 991px) {
+                    font-weight: 700;
+                    line-height: 110%;
+                }
+
+                img {
+                    height: 31px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+    &-feedback {
+        .main-title {
+            margin-bottom: 118px;
+
+            @media(max-width: 991px) {
+                margin-bottom: 85px;
+            }
+        }
+        &-card {
+            padding: 40px 25px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.1);
+            background: rgb(255, 255, 255);
+            max-width: 552px;
+            margin-right: 36px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+
+            @media(max-width: 991px) {
+                padding: 20px 15px;
+                margin-bottom: 90px;
+                margin-right: 0;
+            }
+
+            &-title {
+                font-size: 22px;
+                font-weight: 600;
+                line-height: 145%;
+                margin-bottom: 20px;
+                margin-top: 68px;
+
+                @media(max-width: 991px) {
+                    margin-top: 25px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &-img {
+                position: absolute;
+                top: -60px;
+
+                @media(max-width: 991px) {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+    }
+
+    &-order {
+        &-text {
+            font-style: italic;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 130%;
+            max-width: 844px;
+            margin-bottom: 40px;
+            @media(max-width: 991px) {
+                font-size: 22px;
+                line-height: 125%;
             }
         }
     }

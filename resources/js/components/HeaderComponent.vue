@@ -4,13 +4,13 @@
             <div class="d-flex align-items-center justify-content-between gap-3">
                 <img class="header-logo" src="assets/img/logo-ersag.svg" alt="logo">
 
-                <a href="#" class="header-link">Про продукт</a>
-                <a href="#" class="header-link">Наші переваги</a>
-                <a href="#" class="header-link">Каталог товару</a>
-                <a href="#" class="header-link">Виробник</a>
-                <a href="#" class="header-link">Відгуки</a>
+                <a href="#about" class="header-link">Про продукт</a>
+                <a href="#advantages" class="header-link">Наші переваги</a>
+                <a href="#catalog" class="header-link">Каталог товару</a>
+                <a href="#manufacturer" class="header-link">Виробник</a>
+                <a href="#feedback" class="header-link">Відгуки</a>
 
-                <button class="header-btn">Замовити</button>
+                <button class="header-btn" @click="openOrderModal">Замовити</button>
             </div>
         </div>
 
@@ -19,8 +19,15 @@
 </template>
 
 <script>
+import { EventBus } from '@/eventBus';
+
 export default {
     name: 'HeaderComponent',
+    methods: {
+        openOrderModal() {
+            EventBus.$emit('openOrderModal');
+        },
+    }
 };
 </script>
 
