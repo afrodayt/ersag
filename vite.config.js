@@ -8,20 +8,21 @@ export default defineConfig({
     server: {
         https: process.env.APP_ENV === 'production', // HTTPS только на продакшене
     },
-    build: {
-        manifest: true, // Убедитесь, что манифест включен, если он нужен вашему серверу для правильной маршрутизации
-        outDir: 'public/build', // Путь к выходной директории
-    },
+    // build: {
+    //     manifest: true, // Убедитесь, что манифест включен, если он нужен вашему серверу для правильной маршрутизации
+    //     outDir: 'public/build', // Путь к выходной директории
+    // },
     plugins: [
         laravel({
-            input: {
-                main: 'resources/js/app.js',
-                styles: 'resources/less/app.less',
-            },
+            input: [
+                'resources/js/app.js',
+                'resources/less/app.less',
+            ],
             refresh: true,
         }),
         vue(),
     ],
+
     resolve: {
         alias: {
             '@': path.resolve(__dirname, 'resources/js'),
