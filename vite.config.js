@@ -6,7 +6,10 @@ import path from "path";
 export default defineConfig({
     base: '/',
     server: {
-        https: true,
+        https: process.env.APP_ENV === 'production', // HTTPS только на продакшене
+    },
+    build: {
+        manifest: true, // Убедитесь, что манифест включен, если он нужен вашему серверу для правильной маршрутизации
     },
     plugins: [
         laravel({
