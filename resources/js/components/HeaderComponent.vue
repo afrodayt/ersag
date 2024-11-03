@@ -10,7 +10,7 @@
                 <a href="#manufacturer" class="header-link">Виробник</a>
                 <a href="#feedback" class="header-link">Відгуки</a>
 
-                <button class="header-btn" data-bs-toggle="modal" data-bs-target="#orderModal">Замовити</button>
+                <button class="header-btn" @click="openOrderModal">Замовити</button>
             </div>
         </div>
 
@@ -19,8 +19,15 @@
 </template>
 
 <script>
+import { EventBus } from '@/eventBus';
+
 export default {
     name: 'HeaderComponent',
+    methods: {
+        openOrderModal() {
+            EventBus.$emit('openOrderModal');
+        },
+    }
 };
 </script>
 

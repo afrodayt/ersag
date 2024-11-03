@@ -9,19 +9,19 @@
                         </div>
                         <h5 class="modal-title" id="exampleModalLabel">Ваше замовлення</h5>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body p-0">
                         <form @submit.prevent="submitOrder">
-                            <div class="modal-input">
-                                <label for="name-input" class="modal-input-name">Ім'я</label>
-                                <input type="text" placeholder="Ірина" v-model="name" class="modal-input-string" required>
+                            <div>
+                                <label for="name-input" class="modal-label">Ім'я</label>
+                                <input type="text" placeholder="Ірина" v-model="name" class="modal-input" required>
                             </div>
-                            <div class="modal-input">
-                                <label for="phone-input" class="modal-input-name">Телефон</label>
-                                <input type="tel" v-model="phone" placeholder="+38 050 021 36 21" class="modal-input-string" required>
+                            <div>
+                                <label for="phone-input" class="modal-label">Телефон</label>
+                                <input type="tel" v-model="phone" placeholder="+38 050 021 36 21" class="modal-input" required>
                             </div>
-                            <div class="modal-input">
-                                <label for="address-input" class="modal-input-name">Адреса доставки</label>
-                                <input type="text" v-model="address" placeholder="місто Київ, відділення нової пошти 52" class="modal-input-string mb-50" required>
+                            <div>
+                                <label for="address-input" class="modal-label">Адреса доставки</label>
+                                <input type="text" v-model="address" placeholder="місто Київ, відділення нової пошти 52" class="modal-input mb-50" required>
                             </div>
                             <div class="modal-form-title">Вибір продукту</div>
                             <div class="d-flex flex-column gap-4 mb-50">
@@ -29,7 +29,7 @@
                                     <div class="d-flex align-items-center">
                                         <input :id="'product-checkbox' + product.id" type="checkbox" v-model="product.selected" @change="updateProductSelection(product)" class="modal-form-checkbox">
                                         <label :for="'product-checkbox' + product.id" class="modal-form-label"></label>
-                                        <div class="modal-form-text">{{ product.productName }}</div>
+                                        <div class="modal-form-text">{{ product.productShortName }}</div>
                                     </div>
                                     <div class="d-flex align-items-center modal-form-calculate">
                                         <div class="modal-form-calculate-text">Кількість</div>
@@ -44,7 +44,7 @@
 
                             <div class="modal-info mb-50">🚚 Оформіть замовлення до кінця дня і отримайте безкоштовну доставку!</div>
                             <div class="modal-summary mb-50">Сума до сплати: {{ summary }} <span class="modal-summary-small">грн</span></div>
-                            <button type="submit" class="modal-btn">Оформити замовлення</button>
+                            <button type="submit" :disabled="loading" class="modal-btn">Оформити замовлення</button>
                         </form>
                     </div>
                 </div>
@@ -56,6 +56,7 @@
 
 <script>
 import {products} from "@/products.js";
+import { EventBus } from '@/eventBus';
 
 export default {
     name: 'OrderModal',
@@ -66,7 +67,8 @@ export default {
             address: '',
             summary: 0,
             isVisible: false,
-            products: products
+            products: products,
+            loading: false
         };
     },
 
@@ -80,10 +82,12 @@ export default {
                     this.countSum();
                 }
             }
+            document.body.style.overflow = 'hidden';
             this.isVisible = true;
         },
         closeModal() {
             this.isVisible = false;
+            document.body.style.overflow = '';
             this.resetForm();
         },
         resetForm() {
@@ -124,7 +128,9 @@ export default {
             }
             this.countSum();
         },
-        submitOrder() {
+        async submitOrder() {
+            this.loading = true;
+
             const leadData = {
                 name: this.name,
                 phone: this.phone,
@@ -133,7 +139,7 @@ export default {
                 summary: this.summary.toString()
             };
 
-            fetch('/api/leads', {
+            await fetch('/api/leads', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -150,7 +156,17 @@ export default {
                 .catch(error => {
                     console.error('Ошибка:', error);
                 });
+
+            this.loading = false;
         }
+    },
+    mounted() {
+        EventBus.$on('openOrderModal', (id) => {
+            this.openModal(id); // Открываем модальное окно с переданным id
+        });
+    },
+    beforeDestroy() {
+        EventBus.$off('openOrderModal'); // Отписываемся от событий, чтобы избежать утечек памяти
     },
 };
 </script>
@@ -169,11 +185,14 @@ export default {
     background-color: rgba(0, 0, 0, 0.5);
 }
 .modal {
+    &-dialog {
+        max-width: 580px;
+    }
+
     &-content {
         padding: 25px 40px 55px 40px;
         border-radius: 20px;
         border: unset;
-        width: unset;
     }
 
     &-header {
@@ -186,33 +205,25 @@ export default {
         font-size: 32px;
         font-weight: 700;
         line-height: 125%;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
-    &-body {
-        padding: 0;
+    &-label {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        margin-bottom: 10px;
     }
 
     &-input {
-        display: flex;
-        flex-direction: column;
-
-        &-name {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 22px;
-            margin-bottom: 10px;
-        }
-
-        &-string {
-            border: 1px solid rgb(194, 194, 194);;
-            border-radius: 10px;
-            background: rgb(255, 255, 255);
-            padding: 14px;
-            margin-bottom: 25px;
-            width: 500px;
-        }
+        border: 1px solid rgb(194, 194, 194);;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        padding: 14px;
+        margin-bottom: 20px;
+        width: 100%;
     }
+
     &-form {
         &-title {
             font-size: 18px;
@@ -311,10 +322,14 @@ export default {
         border-radius: 80px;
         background: rgb(255, 217, 0);
         border: none;
-        padding: 18px 146px;
         font-size: 17px;
         font-weight: 600;
         line-height: 120%;
+        height: 55px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 </style>

@@ -1,7 +1,8 @@
 export const products = [
     {
         id: 1,
-        productName: 'Засіб для килимів',
+        productName: 'Миючий засіб для килимів',
+        productShortName: 'Засіб для килимів',
         count: 0,
         selected: false,
         price: 300,
@@ -10,7 +11,8 @@ export const products = [
     },
     {
         id: 2,
-        productName: 'Засіб для меблів',
+        productName: 'Засіб для чищення меблів,',
+        productShortName: 'Засіб для меблів',
         count: 0,
         selected: false,
         price: 250,
@@ -20,6 +22,7 @@ export const products = [
     {
         id: 3,
         productName: 'Набір для очищення меблів та килимів',
+        productShortName: 'Набір для очищення меблів та килимів',
         count: 0,
         selected: false,
         price: 550,
