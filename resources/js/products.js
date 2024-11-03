@@ -1,7 +1,7 @@
 export const products = [
     {
         id: 1,
-        productName: 'Миючий засіб для килимів',
+        productName: 'Миючий засіб для килимів,',
         productShortName: 'Засіб для килимів',
         count: 0,
         selected: false,

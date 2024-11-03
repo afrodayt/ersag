@@ -25,7 +25,7 @@
                             </div>
                             <div class="modal-form-title">Вибір продукту</div>
                             <div class="d-flex flex-column gap-4 mb-50">
-                                <div class="d-flex" v-for="product in products" :key="'order-modal-product-' + product.id">
+                                <div class="d-flex justify-content-between" v-for="product in products" :key="'order-modal-product-' + product.id">
                                     <div class="d-flex align-items-center">
                                         <input :id="'product-checkbox' + product.id" type="checkbox" v-model="product.selected" @change="updateProductSelection(product)" class="modal-form-checkbox">
                                         <label :for="'product-checkbox' + product.id" class="modal-form-label"></label>
@@ -174,6 +174,9 @@ export default {
 <style scoped lang="less">
 .mb-50 {
     margin-bottom: 50px !important;
+    @media (max-width: 991px) {
+        margin-bottom: 40px !important;
+    }
 }
 
 .modal-backdrop {
@@ -190,9 +193,12 @@ export default {
     }
 
     &-content {
-        padding: 25px 40px 55px 40px;
+        padding: 55px 40px;
         border-radius: 20px;
         border: unset;
+        @media (max-width: 991px) {
+            padding: 55px 15px;
+        }
     }
 
     &-header {
@@ -205,7 +211,12 @@ export default {
         font-size: 32px;
         font-weight: 700;
         line-height: 125%;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+
+        @media (max-width: 991px) {
+            font-size: 28px;
+            margin-bottom: 35px;
+        }
     }
 
     &-label {
@@ -213,6 +224,10 @@ export default {
         font-weight: 600;
         line-height: 22px;
         margin-bottom: 10px;
+        @media (max-width: 991px) {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
     }
 
     &-input {
@@ -230,6 +245,9 @@ export default {
             font-weight: 600;
             line-height: 25px;
             margin-bottom: 20px;
+            @media (max-width: 991px) {
+                font-size: 17px;
+            }
         }
         &-checkbox {
             display: none;
@@ -247,6 +265,10 @@ export default {
                 border: solid white;
                 border-width: 0 2px 2px 0;
                 transform: rotate(45deg);
+                @media (max-width: 991px) {
+                    top: 1px;
+                    left: 6px;
+                }
             }
 
         }
@@ -259,13 +281,20 @@ export default {
             position: relative;
             cursor: pointer;
             margin-right: 12px;
+            @media (max-width: 991px) {
+                width: 20px;
+                height: 20px;
+            }
         }
         &-text {
             font-size: 17px;
             font-weight: 400;
             line-height: 22px;
-            margin-right: 72px;
             width: 180px;
+            @media (max-width: 991px) {
+                font-size: 16px;
+                width: 140px;
+            }
         }
         &-calculate {
             &-input {
@@ -273,12 +302,19 @@ export default {
                 height: 34px;
                 border: 1px solid rgb(185, 185, 185);
                 border-radius: 5px;
+                @media (max-width: 991px) {
+                    width: 38px;
+                    height: 28px;
+                }
             }
             &-text {
                 font-size: 17px;
                 font-weight: 400;
                 line-height: 22px;
                 margin-right: 22px;
+                @media (max-width: 991px) {
+                    display: none;
+                }
             }
             &-button {
                 border: unset;
@@ -288,6 +324,11 @@ export default {
                 color: rgb(55, 146, 219);
                 padding: 0;
                 margin-right: 14px;
+                @media (max-width: 991px) {
+                    margin-right: 3.5px;
+                    width: 16px;
+                    height: 19px;
+                }
 
                 &:disabled {
                     color: rgb(185, 185, 185);
@@ -296,6 +337,9 @@ export default {
                 &:last-child {
                     margin-right: 0;
                     margin-left: 14px;
+                    @media (max-width: 991px) {
+                        margin-left: 3.5px;
+                    }
                 }
             }
         }
@@ -307,15 +351,24 @@ export default {
         font-size: 18px;
         font-weight: 600;
         line-height: 25px;
+        @media (max-width: 991px) {
+            font-size: 16px;
+        }
     }
     &-summary {
         font-size: 26px;
         font-weight: 600;
         line-height: 35px;
+        @media (max-width: 991px) {
+            font-size: 22px;
+        }
 
         &-small {
             font-size: 20px;
             line-height: 27px;
+            @media (max-width: 991px) {
+                font-size: 16px;
+            }
         }
     }
     &-btn {
@@ -330,6 +383,9 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: 991px) {
+            font-size: 16px;
+        }
     }
 }
 </style>

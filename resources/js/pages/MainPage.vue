@@ -207,14 +207,14 @@
                     </div>
                 </div>
                 <div class="row align-items-stretch">
-                    <div class="col-12 col-lg-4" v-for="product in products" :key="product.id">
+                    <div class="main-catalog-container col-12 col-lg-4" v-for="product in products" :key="product.id">
                         <div class="main-catalog-card">
                             <div>
                                 <div class="text-center">
                                     <img :src="'assets/img/' + product.img" :alt="product.productName">
                                 </div>
                                 <div class="main-catalog-card-title">
-                                    {{ product.productName }}, <span v-if="product.id !== 3">{{product.volume}}</span>
+                                    {{ product.productName }} <span v-if="product.id !== 3">{{product.volume}}</span>
                                 </div>
                                 <div v-if="product.id === 1">
                                     <div class="main-catalog-card-description mb-2">
@@ -242,6 +242,7 @@
                                         <span class="fw-600">Переваги:</span>
                                         Економія, комплексне рішення для догляду за домом.
                                     </div>
+
                                 </div>
 
                                 <div class="main-catalog-card-description">
@@ -754,6 +755,12 @@ export default {
     }
 
     &-catalog {
+        &-container {
+            @media (max-width: 991px) {
+                margin-bottom: 30px;
+            }
+        }
+
         &-card {
             box-shadow: 0px 0px 30px 0px #0000001A;
             border-radius: 15px;
