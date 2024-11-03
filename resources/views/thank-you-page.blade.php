@@ -21,6 +21,7 @@
             font-weight: 700;
             line-height: 110%;
             margin-bottom: 15px;
+            text-align: center;
         }
         .thank-you-description {
             font-size: 18px;

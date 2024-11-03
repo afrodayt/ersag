@@ -4,14 +4,11 @@ import vue from '@vitejs/plugin-vue2';
 import path from "path";
 
 export default defineConfig({
-    base: '/',
+    base: '/build',
     server: {
         https: process.env.APP_ENV === 'production', // HTTPS только на продакшене
     },
-    // build: {
-    //     manifest: true, // Убедитесь, что манифест включен, если он нужен вашему серверу для правильной маршрутизации
-    //     outDir: 'public/build', // Путь к выходной директории
-    // },
+
     plugins: [
         laravel({
             input: [
