@@ -4,6 +4,10 @@ import vue from '@vitejs/plugin-vue2';
 import path from "path";
 
 export default defineConfig({
+    base: '/',
+    server: {
+        https: true,
+    },
     plugins: [
         laravel({
             input: {
