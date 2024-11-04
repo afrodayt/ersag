@@ -10,7 +10,7 @@
                         </div>
                         <div class="main-banner-description">
                             Концентровані засоби для очищення килимів та меблів, безпечні для дітей, домашніх тварин та
-                            вашого дому. Вироблено в Туреччині.
+                            вашого дому. <br> Вироблено в Туреччині.
                         </div>
 
                         <div class="d-flex justify-content-center justify-content-md-start">
@@ -421,6 +421,7 @@ export default {
             font-size: 20px;
             font-weight: 400;
             margin-bottom: 40px;
+            line-height: 26px;
 
             @media (max-width: 767px) {
                 margin-bottom: 25px;
