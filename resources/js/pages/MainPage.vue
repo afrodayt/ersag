@@ -1,9 +1,9 @@
 <template>
     <main class="main">
-        <div class="main-banner w-100 mb-200 d-none d-md-block">
+        <div class="main-banner w-100 mb-200 d-none d-lg-block">
             <div class="container h-100">
                 <div class="row h-100 align-items-md-center">
-                    <div class="col-12 col-md-8 col-lg-7">
+                    <div class="col-12 col-lg-7">
                         <div class="main-banner-title">
                             Ефективне та безпечне очищення меблів і килимів <span
                             class="text-yellow fw-800">без фосфатів!</span>
@@ -13,7 +13,7 @@
                             вашого дому. <br> Вироблено в Туреччині.
                         </div>
 
-                        <div class="d-flex justify-content-center justify-content-md-start">
+                        <div class="d-flex justify-content-center justify-content-lg-start">
                             <a href="#catalog"
                                class="main-button text-dark d-flex align-items-center justify-content-center text-decoration-none">
                                 До каталогу товарів
@@ -23,11 +23,11 @@
                 </div>
             </div>
         </div>
-        <div class="container d-md-none mb-200">
+        <div class="container d-lg-none mb-200">
             <div class="main-banner w-100 ">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-8 col-lg-7">
+                        <div class="col-12 col-lg-7">
                             <div class="main-banner-title">
                                 Ефективне та безпечне очищення меблів і килимів <span
                                 class="text-yellow fw-800">без фосфатів!</span>
@@ -37,7 +37,7 @@
                                 вашого дому. Вироблено в Туреччині.
                             </div>
 
-                            <div class="d-flex justify-content-center justify-content-md-start">
+                            <div class="d-flex justify-content-center justify-content-lg-start">
                                 <a href="#catalog"
                                    class="main-button text-dark d-flex align-items-center justify-content-center text-decoration-none">
                                     До каталогу товарів
@@ -399,7 +399,7 @@ export default {
         color: #ffffff;
         border-radius: 15px;
 
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
             background: url("img/main-banner-mobile.png") center no-repeat;
             background-size: cover;
             height: 550px;
@@ -886,6 +886,12 @@ export default {
                 right: 30px;
                 width: 490px;
                 height: 287px;
+
+                @media (max-width: 1200px) {
+                    width: 450px;
+                    height: auto;
+                    right: 0;
+                }
 
                 @media (max-width: 991px) {
                     position: relative;
