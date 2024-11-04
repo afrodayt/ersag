@@ -52,7 +52,7 @@
                 <img src="{{asset('assets/img/img-thank-you-page.png')}}" alt="img-thank-you" class="adaptive-img">
                 <div class="d-flex flex-column">
                     <div class="thank-you-title">Вашу заявку прийнято!</div>
-                    <div class="thank-you-description">Ми зв'яжемося з вами найближчим часом</div>
+                    <div class="thank-you-description d-flex justify-content-center">Ми зв'яжемося з вами найближчим часом</div>
                 </div>
 
             </div>

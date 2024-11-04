@@ -227,7 +227,7 @@
                                 </div>
                                 <div v-else-if="product.id === 2">
                                     <div class="main-catalog-card-description mb-2">
-                                        <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP
+                                        <span class="fw-600">Склад:</span> Спеціальна формула для чищення меблів, без фосфатів (STTP)
                                     </div>
                                     <div class="main-catalog-card-description mb-2">
                                         <span class="fw-600">Спосіб застосування:</span>
@@ -262,8 +262,14 @@
                                 <div class="main-catalog-card-price" v-else>
                                     {{product.price}} грн
                                 </div>
-                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)">
-                                    Замовити
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-if="product.id === 1">
+                                    Замовити засіб для килимів
+                                </button>
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-else-if="product.id === 2">
+                                    Замовити засіб для меблів
+                                </button>
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-else-if="product.id === 3">
+                                    Замовити набір зі знижкою
                                 </button>
                             </div>
                         </div>
@@ -349,14 +355,18 @@
                     </div>
                 </div>
             </section>
-            <section class="main-order mb-200 d-flex align-items-center flex-column">
-                <div class="main-order-text text-center">
-                    Замовте зараз та отримайте <span class="text-blue fw-bold">знижку 10%</span>
-                    на перше замовлення! Безпечне та ефективне очищення вашого дому без зайвих зусиль
-                </div>
-                <button class="main-button" @click="openOrderModal">Замовити зі знижкою</button>
-            </section>
         </div>
+            <section class="main-order mb-200">
+                <div class="main-order-bg d-flex align-items-center">
+                    <div class="container d-flex align-items-center flex-column">
+                        <div class="main-order-text text-center">
+                            Замовте зараз та отримайте <span class="text-blue fw-bold">знижку 10%</span>
+                            на перше замовлення! Безпечне та ефективне очищення вашого дому без зайвих зусиль
+                        </div>
+                        <button class="main-button" @click="openOrderModal">Замовити зі знижкою</button>
+                    </div>
+                </div>
+            </section>
         <OrderModal ref="productModal"/>
     </main>
 </template>
@@ -392,13 +402,14 @@ export default {
         background: url("img/main-banner.png") center no-repeat;
         height: 550px;
         color: #ffffff;
+        border-radius: 15px;
 
         @media (max-width: 767px) {
             background: url("img/main-banner-mobile.png") center no-repeat;
             background-size: cover;
             height: 631px;
             text-align: center;
-            padding: 45px 15px 0;
+            padding: 30px 15px 0;
         }
 
         &-title {
@@ -921,6 +932,10 @@ export default {
     &-manufacturer {
         background-image: url("assets/img/bg-manufacturer.png");
 
+        @media (max-width: 991px) {
+            background-image: url("img/bg-manufacturer-mb.png");
+        }
+
         .main-title {
             margin-bottom: 24px;
             max-width: 845px;
@@ -1014,6 +1029,14 @@ export default {
     }
 
     &-order {
+        &-bg {
+            background: url("assets/img/bg-promotional-offer.png");
+            height: 510px;
+            @media (max-width: 991px) {
+                background: url("assets/img/bg-promotional-offer-mb.png");
+                height: 311px;
+            }
+        }
         &-text {
             font-style: italic;
             font-size: 36px;

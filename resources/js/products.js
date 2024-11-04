@@ -8,6 +8,7 @@ export const products = [
         price: 300,
         volume: '1000 мл',
         img: 'img-product-carpet-cleaner.png',
+        btnName: 'Замовити засіб для килимів',
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export const products = [
         price: 250,
         volume: '500 мл',
         img: 'img-product-furniture-cleaner.png',
+        btnName: 'Замовити засіб для меблів',
     },
     {
         id: 3,
@@ -29,5 +31,6 @@ export const products = [
         discountPrice: 500,
         volume: '1000 мл та 500 мл',
         img: 'img-product-set.png',
+        btnName: 'Замовити набір зі знижкою',
     },
 ];
