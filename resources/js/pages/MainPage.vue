@@ -340,7 +340,7 @@
                             залишає слідів. Дуже економний — одного флакона вистачає надовго
                         </div>
                     </div>
-                    <div class="main-feedback-card me-0 col-11 col-lg-6">
+                    <div class="main-feedback-card me-0 col-11 col-lg-6 mb-0">
                         <img src="assets/img/photo-reviews-2.png" alt="avatar" class="main-feedback-card-img">
                         <div class="main-feedback-card-title">Ірина, Львів.</div>
                         <div class="text-center">
@@ -402,9 +402,9 @@ export default {
         @media (max-width: 991px) {
             background: url("img/main-banner-mobile.png") center no-repeat;
             background-size: cover;
-            height: 550px;
+            height: unset;
             text-align: center;
-            padding: 30px 15px 0;
+            padding: 45px 15px;
             margin-bottom: -1px;
         }
 
