@@ -4,24 +4,24 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <div class="align-items-end d-flex w-100">
-                            <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
-                        </div>
+
+                        <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
+
                         <h5 class="modal-title" id="exampleModalLabel">Ваше замовлення</h5>
                     </div>
                     <div class="modal-body p-0">
                         <form @submit.prevent="submitOrder">
                             <div>
                                 <label for="name-input" class="modal-label">Ім'я</label>
-                                <input type="text" placeholder="Ірина" v-model="name" class="modal-input" required>
+                                <input type="text" placeholder="Наприклад: Ірина" v-model="name" class="modal-input" required>
                             </div>
                             <div>
                                 <label for="phone-input" class="modal-label">Телефон</label>
-                                <input type="tel" v-model="phone" placeholder="+38 050 021 36 21" class="modal-input" required>
+                                <input type="tel" v-model="phone" placeholder="+38 (___) ___-__-__" class="modal-input" required>
                             </div>
                             <div>
                                 <label for="address-input" class="modal-label">Адреса доставки</label>
-                                <input type="text" v-model="address" placeholder="місто Київ, відділення нової пошти 52" class="modal-input mb-50" required>
+                                <input type="text" v-model="address" placeholder="Наприклад: місто Київ, відділення нової пошти 52" class="modal-input mb-50" required>
                             </div>
                             <div class="modal-form-title">Вибір продукту</div>
                             <div class="d-flex flex-column gap-4 mb-50">
@@ -189,6 +189,13 @@ export default {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.btn-close {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+
 .modal {
     &-dialog {
         max-width: 580px;

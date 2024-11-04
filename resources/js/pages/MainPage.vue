@@ -925,10 +925,14 @@ export default {
     }
 
     &-manufacturer {
-        background-image: url("assets/img/bg-manufacturer.png");
+        background: url("assets/img/bg-manufacturer.png") center no-repeat;
+        background-size: cover;
+        padding: 70px 0;
 
         @media (max-width: 991px) {
-            background-image: url("img/bg-manufacturer-mb.png");
+            background: url("img/bg-manufacturer-mb.png") center no-repeat;
+            background-size: 100% 100%;
+            padding: 0;
         }
 
         .main-title {
@@ -1025,13 +1029,17 @@ export default {
 
     &-order {
         &-bg {
-            background: url("assets/img/bg-promotional-offer.png");
+            background: url("assets/img/bg-promotional-offer.png") center no-repeat;
+            background-size: cover;
             height: 510px;
+
             @media (max-width: 991px) {
-                background: url("assets/img/bg-promotional-offer-mb.png");
+                background: url("assets/img/bg-promotional-offer-mb.png") center no-repeat;
+                background-size: cover;
                 height: 311px;
             }
         }
+
         &-text {
             font-style: italic;
             font-size: 36px;
@@ -1039,6 +1047,7 @@ export default {
             line-height: 130%;
             max-width: 844px;
             margin-bottom: 40px;
+
             @media(max-width: 991px) {
                 font-size: 22px;
                 line-height: 125%;
