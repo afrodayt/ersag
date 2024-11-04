@@ -23,10 +23,10 @@
                 </div>
             </div>
         </div>
-        <div class="container d-md-none">
-            <div class="main-banner w-100 mb-200">
+        <div class="container d-md-none mb-200">
+            <div class="main-banner w-100 ">
                 <div class="container h-100">
-                    <div class="row h-100 align-items-md-center">
+                    <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-8 col-lg-7">
                             <div class="main-banner-title">
                                 Ефективне та безпечне очищення меблів і килимів <span
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center justify-content-md-start">
-                                <a href="#"
+                                <a href="#catalog"
                                    class="main-button text-dark d-flex align-items-center justify-content-center text-decoration-none">
                                     До каталогу товарів
                                 </a>
@@ -47,6 +47,7 @@
                     </div>
                 </div>
             </div>
+            <img class="adaptive-img" style="border-radius: 15px" src="assets/img/mobile-main-right-side-banner.jpg" alt="mobile-main-right-side-banner">
         </div>
         <div class="container">
             <section class="mb-200 text-center text-lg-start" id="about">
@@ -401,9 +402,10 @@ export default {
         @media (max-width: 767px) {
             background: url("img/main-banner-mobile.png") center no-repeat;
             background-size: cover;
-            height: 631px;
+            height: 550px;
             text-align: center;
             padding: 30px 15px 0;
+            margin-bottom: -1px;
         }
 
         &-title {
