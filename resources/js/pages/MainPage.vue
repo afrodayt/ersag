@@ -262,14 +262,8 @@
                                 <div class="main-catalog-card-price" v-else>
                                     {{product.price}} грн
                                 </div>
-                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-if="product.id === 1">
-                                    Замовити засіб для килимів
-                                </button>
-                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-else-if="product.id === 2">
-                                    Замовити засіб для меблів
-                                </button>
-                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)" v-else-if="product.id === 3">
-                                    Замовити набір зі знижкою
+                                <button class="main-catalog-card-btn" @click="openOrderModal(product.id)">
+                                    Замовити
                                 </button>
                             </div>
                         </div>
