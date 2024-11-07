@@ -42,7 +42,7 @@
                                 </div>
                             </div>
 
-                            <div class="modal-info mb-50">🚚 Оформіть замовлення до кінця дня і отримайте безкоштовну доставку!</div>
+                            <div class="modal-info mb-50">🚚 Доставка за тарифами нової пошти або укрпочти</div>
                             <div class="modal-summary mb-50">Сума до сплати: {{ summary }} <span class="modal-summary-small">грн</span></div>
                             <button type="submit" :disabled="loading || summary === 0" class="modal-btn">Оформити замовлення</button>
                         </form>

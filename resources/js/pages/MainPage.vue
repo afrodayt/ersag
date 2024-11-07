@@ -56,7 +56,7 @@
                         <img class="adaptive-img" src="assets/img/img-problem-contamination-of-furniture.png" alt="problems">
                     </div>
                     <div class="col-12 col-lg-6 mb-4 mb-lg-0">
-                        <div class="main-title mb-4">Lorem ipsum</div>
+                        <div class="main-title mb-4">Вам це знайоме?</div>
                         <div class="mb-3">
                             Ваші килими та м’які меблі щодня збирають пил, плями та бруд, що
                             негативно впливає
@@ -96,7 +96,7 @@
                             <div>
                                 Завдяки високій концентрації засіб забезпечує глибоке очищення, видаляє навіть складні
                                 плями з поверхні килимів та меблів.
-                                <span class="text-blue fw-600">Лише одна кришечка засобу забезпечить до 66 літрів</span>
+                                <span class="text-blue fw-600">Лише одна упаковка засобу забезпечить до 66 літрів активного засобу</span>
                                 — це економічно вигідно та зручно у використанні.
                             </div>
                         </div>
@@ -276,7 +276,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-7 main-products-container">
                             <div class="main-products-container-text">
-                                Замовляючи наші засоби разом, ви отримуєте комплексне рішення для догляду за вашим домом та <span class="fw-bold">економите 50 грн!</span> Безпечний
+                                Замовляючи наші засоби разом, ви отримуєте комплексне рішення для догляду за вашим домом та <span class="fw-bold">економите 100 грн!</span> Безпечний
                                 догляд для килимів і меблів в одному наборі.
                             </div>
                         </div>
